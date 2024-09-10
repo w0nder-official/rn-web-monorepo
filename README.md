@@ -45,12 +45,11 @@ make docker-up
 #### Run Service
 
 ```shell
-# All service except app
 yarn dev
 ```
 
 ### Test & Lint
 
-```
+```shell
 yarn lint
 ```
