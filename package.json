@@ -1,0 +1,34 @@
+{
+  "name": "blankclub",
+  "author": "fi-workers",
+  "license": "UNLICENSED",
+  "private": true,
+  "packageManager": "yarn@4.4.1",
+  "workspaces": {
+    "packages": [
+      "src/frontend/app"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "8.2.2",
+    "husky": "9.1.5",
+    "lint-staged": "15.2.10"
+  },
+  "scripts": {
+    "install": "husky install",
+    "@blankclub/frontend-app": "yarn workspace @blankclub/frontend-app",
+    "lint": "yarn lint-frontend-app",
+    "lint-frontend-app": "yarn @blankclub/frontend-app lint && yarn @blankclub/frontend-app ts-check && echo done",
+    "dev": "concurrently -c \"bgGreen.bold,bgMagenta.bold,bgYellow.bold,bgBlue.bold\" \"yarn:run-*\"",
+    "run-traefik": "cd docs/infra/local/traefik && traefik --configFile=traefik.toml",
+    "run-frontend-app": "yarn @blankclub/frontend-app dev"
+  },
+  "lint-staged": {
+    "src/frontend/app/**/*.{js,jsx,ts,tsx}": [
+      "yarn lint-frontend-app"
+    ]
+  },
+  "dependencies": {
+    "@hono/valibot-validator": "^0.3.0"
+  }
+}

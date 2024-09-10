@@ -1,0 +1,18 @@
+[http]
+
+[http.routers.blankclub-app]
+rule = "Host(`app.blankclub.work`)"
+service = "blankclub-app"
+entryPoints = ["https"]
+[http.routers.blankclub-app.tls]
+
+
+[http.services]
+[http.services.blankclub-app.loadbalancer]
+[[http.services.blankclub-app.loadbalancer.servers]]
+url = "http://host.docker.internal:3001"
+
+
+[[tls.certificates]]
+certFile = "../cert/blankclub.work+1.pem"
+keyFile = "../cert/blankclub.work+1-key.pem"

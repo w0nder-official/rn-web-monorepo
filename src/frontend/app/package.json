@@ -1,0 +1,32 @@
+{
+  "name": "@blankclub/frontend-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "lint-check": "eslint ./ --quiet",
+    "lint": "eslint ./ --quiet --cache --fix",
+    "prettier": "prettier -w ./**/*.ts ./**/*.tsx --loglevel=warn",
+    "ts-check": "tsc --project ./tsconfig.json --noEmit",
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "hono": "4.5.11",
+    "next": "14.2.8",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "valibot": "0.41.0"
+  },
+  "devDependencies": {
+    "@fw/eslint-config": "https://github.com/fi-workers/eslint-config#commit=4c90c1df09de7801a20c9c54a984d738108c7c7e",
+    "@types/node": "20.16.5",
+    "@types/react": "18.3.5",
+    "@types/react-dom": "18.3.0",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.8",
+    "postcss": "8.4.45",
+    "tailwindcss": "3.4.1",
+    "typescript": "5.5.4"
+  }
+}
