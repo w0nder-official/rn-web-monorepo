@@ -4,7 +4,7 @@ import {
   InAppEvent,
   InAppEventName,
   InAppEventParams,
-  InAppEventType
+  InAppEventType,
 } from '@blankclub/common/src/app/app-to-web-event.constant';
 import { UsedOutsideProviderError } from '@blankclub/frontend-app/utils/exceptions';
 import { EventHandler, EventListener as EventHandlerListener } from 'utils/EventHandler';
@@ -17,19 +17,18 @@ interface InAppState {
 
 const defaultState: InAppState = {
   isPushOn: false,
-  addActionEventListener: (listener: EventHandlerListener<{ type: ActionType }>) => () => {
-  },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  addActionEventListener: (listener: EventHandlerListener<{ type: ActionType }>) => () => {},
 };
 
 const InAppContext = createContext<InAppState>(defaultState);
 
-export const InAppProvider = ({ children, userAgent }: { children: ReactNode; userAgent?: string }) => {
+export const InAppProvider = ({ children }: { children: ReactNode }) => {
   const [isPushOn, setIsPushOn] = useState(defaultState.isPushOn);
   const [actionListeners] = useState(new EventHandler<{ type: ActionType }>());
 
-
-  let handleInAppEvent: (event: any) => Promise<void>;
-  handleInAppEvent = useCallback(
+  const handleInAppEvent = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async (event: any) => {
       const payload = event.detail as InAppEvent<InAppEventType>;
 
@@ -37,7 +36,7 @@ export const InAppProvider = ({ children, userAgent }: { children: ReactNode; us
         case InAppEventType.ChangePushOn: {
           const message = payload.message as InAppEventParams[typeof payload.type];
           setIsPushOn(message.isPushOn);
-          alert('Push notification is ' + (message.isPushOn ? 'on' : 'off'));
+          alert(`Push notification is ${message.isPushOn ? 'on' : 'off'}`);
           break;
         }
         case InAppEventType.Action: {

@@ -19,18 +19,23 @@
   "scripts": {
     "install": "husky install",
     "@blankclub/frontend-app": "yarn workspace @blankclub/frontend-app",
-    "lint": "yarn lint-frontend-app",
+    "@blankclub/common": "yarn workspace @blankclub/common",
+    "@blankclub/app": "yarn workspace blankclub-app",
+    "lint": "yarn lint-common && yarn lint-frontend-app && yarn lint-app",
     "lint-frontend-app": "yarn @blankclub/frontend-app lint && yarn @blankclub/frontend-app ts-check && echo done",
+    "lint-app": "yarn @blankclub/app lint && yarn @blankclub/app ts-check && echo done",
+    "lint-common": "yarn @blankclub/common lint && yarn @blankclub/common ts-check && echo done",
     "dev": "concurrently -c \"bgGreen.bold,bgMagenta.bold,bgYellow.bold,bgBlue.bold\" \"yarn:run-*\"",
     "run-traefik": "cd docs/infra/local/traefik && traefik --configFile=traefik.toml",
-    "run-frontend-app": "yarn @blankclub/frontend-app dev"
+    "run-frontend-app": "yarn @blankclub/frontend-app dev",
+    "run-app": "yarn @blankclub/app start"
   },
   "lint-staged": {
     "src/frontend/app/**/*.{js,jsx,ts,tsx}": [
       "yarn lint-frontend-app"
+    ],
+    "src/common/**/*.{js,jsx,ts,tsx}": [
+      "yarn lint-common"
     ]
-  },
-  "dependencies": {
-    "@hono/valibot-validator": "^0.3.0"
   }
 }

@@ -1208,7 +1208,7 @@ __metadata:
   dependencies:
     "@fw/eslint-config": "https://github.com/fi-workers/eslint-config#commit=4c90c1df09de7801a20c9c54a984d738108c7c7e"
     eslint: "npm:8.57.0"
-    typescript: "npm:5.5.4"
+    typescript: "npm:5.3.3"
   languageName: unknown
   linkType: soft
 
@@ -1217,6 +1217,7 @@ __metadata:
   resolution: "@blankclub/frontend-app@workspace:src/frontend/app"
   dependencies:
     "@fw/eslint-config": "https://github.com/fi-workers/eslint-config#commit=4c90c1df09de7801a20c9c54a984d738108c7c7e"
+    "@hono/valibot-validator": "npm:0.3.0"
     "@types/node": "npm:20.16.5"
     "@types/react": "npm:18.3.5"
     "@types/react-dom": "npm:18.3.0"
@@ -1228,7 +1229,7 @@ __metadata:
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     tailwindcss: "npm:3.4.1"
-    typescript: "npm:5.5.4"
+    typescript: "npm:5.3.3"
     valibot: "npm:0.41.0"
   languageName: unknown
   linkType: soft
@@ -1738,7 +1739,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hono/valibot-validator@npm:^0.3.0":
+"@hono/valibot-validator@npm:0.3.0":
   version: 0.3.0
   resolution: "@hono/valibot-validator@npm:0.3.0"
   peerDependencies:
@@ -3272,6 +3273,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react@npm:18.2.79":
+  version: 18.2.79
+  resolution: "@types/react@npm:18.2.79"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: 10c0/c8a8a005d8830a48cc1ef93c3510c4935a2a03e5557dbecaa8f1038450cbfcb18eb206fa7fba7077d54b8da21faeb25577e897a333392770a7797f625b62c78a
+  languageName: node
+  linkType: hard
+
 "@types/semver@npm:^7.5.0":
   version: 7.5.8
   resolution: "@types/semver@npm:7.5.8"
@@ -4458,11 +4469,13 @@ __metadata:
   dependencies:
     "@babel/core": "npm:7.25.2"
     "@expo/vector-icons": "npm:14.0.2"
+    "@fw/eslint-config": "https://github.com/fi-workers/eslint-config#commit=4c90c1df09de7801a20c9c54a984d738108c7c7e"
     "@react-navigation/native": "npm:6.1.18"
     "@types/jest": "npm:29.5.12"
-    "@types/react": "npm:18.3.5"
+    "@types/react": "npm:18.2.79"
     "@types/react-test-renderer": "npm:18.3.0"
     babel-plugin-module-resolver: "npm:5.0.2"
+    eslint: "npm:8.57.0"
     expo: "npm:51.0.32"
     expo-constants: "npm:16.0.2"
     expo-font: "npm:12.0.10"
@@ -4477,7 +4490,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-native: "npm:0.74.5"
-    react-native-gesture-handler: "npm:2.19.0"
+    react-native-gesture-handler: "npm:2.16.1"
     react-native-reanimated: "npm:3.10.1"
     react-native-safe-area-context: "npm:4.10.5"
     react-native-screens: "npm:3.31.1"
@@ -4492,7 +4505,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "blankclub@workspace:."
   dependencies:
-    "@hono/valibot-validator": "npm:^0.3.0"
     concurrently: "npm:8.2.2"
     husky: "npm:9.1.5"
     lint-staged: "npm:15.2.10"
@@ -11714,18 +11726,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-gesture-handler@npm:2.19.0":
-  version: 2.19.0
-  resolution: "react-native-gesture-handler@npm:2.19.0"
+"react-native-gesture-handler@npm:2.16.1":
+  version: 2.16.1
+  resolution: "react-native-gesture-handler@npm:2.16.1"
   dependencies:
     "@egjs/hammerjs": "npm:^2.0.17"
     hoist-non-react-statics: "npm:^3.3.0"
     invariant: "npm:^2.2.4"
+    lodash: "npm:^4.17.21"
     prop-types: "npm:^15.7.2"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10c0/e92552ff92211e9ce8ef2e706e599b1ba58778ae7f611fd011cc4076c6eba69d6e3940e8bd3a394956226f07f3bcde5aaf0a4b99345180044d226ad9edce8a4a
+  checksum: 10c0/fea9cc67b645ec77f26c61b10edf379adf3084d4280ea76c7986cf1b175c2957c53fa4b880d0a67232fd6cdc260057e3b97752ccb028c1d635b8db87a79bad27
   languageName: node
   linkType: hard
 
@@ -13800,7 +13813,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.5.4, typescript@npm:^5.2.2":
+"typescript@npm:^5.2.2":
   version: 5.5.4
   resolution: "typescript@npm:5.5.4"
   bin:
@@ -13820,7 +13833,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.2.2#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.2.2#optional!builtin<compat/typescript>":
   version: 5.5.4
   resolution: "typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"
   bin:

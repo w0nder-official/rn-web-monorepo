@@ -1,4 +1,3 @@
-
 export interface WebViewEvent<I extends WebViewEventType> {
   type: I;
   message?: WebViewEventParams[I];

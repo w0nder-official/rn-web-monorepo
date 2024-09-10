@@ -3,13 +3,16 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
+    "lint-check": "eslint ./ --quiet",
+    "lint": "eslint ./ --quiet --cache --fix",
+    "prettier": "prettier -w ./**/*.ts ./**/*.tsx --loglevel=warn",
+    "ts-check": "tsc --project ./tsconfig.json --noEmit",
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "jest --watchAll",
-    "lint": "expo lint"
+    "test": "jest --watchAll"
   },
   "jest": {
     "preset": "jest-expo"
@@ -29,7 +32,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.5",
-    "react-native-gesture-handler": "2.19.0",
+    "react-native-gesture-handler": "2.16.1",
     "react-native-reanimated": "3.10.1",
     "react-native-safe-area-context": "4.10.5",
     "react-native-screens": "3.31.1",
@@ -38,10 +41,12 @@
   },
   "devDependencies": {
     "@babel/core": "7.25.2",
+    "@fw/eslint-config": "https://github.com/fi-workers/eslint-config#commit=4c90c1df09de7801a20c9c54a984d738108c7c7e",
     "@types/jest": "29.5.12",
-    "@types/react": "18.3.5",
+    "@types/react": "18.2.79",
     "@types/react-test-renderer": "18.3.0",
     "babel-plugin-module-resolver": "5.0.2",
+    "eslint": "8.57.0",
     "jest": "29.7.0",
     "jest-expo": "51.0.4",
     "react-test-renderer": "18.2.0",

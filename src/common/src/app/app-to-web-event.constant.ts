@@ -16,7 +16,6 @@ export enum ActionType {
   Share = 'Share',
 }
 
-
 export interface InAppEventParams {
   [InAppEventType.ChangePushOn]: { isPushOn: boolean };
   [InAppEventType.Action]: { type: ActionType };

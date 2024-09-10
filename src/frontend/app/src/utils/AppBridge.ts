@@ -1,5 +1,8 @@
-import { WebViewEvent, WebViewEventParams, WebViewEventType } from '@blankclub/common/src/app/web-to-app-event.constant';
-
+import {
+  WebViewEvent,
+  WebViewEventParams,
+  WebViewEventType,
+} from '@blankclub/common/src/app/web-to-app-event.constant';
 
 export class AppBridge {
   static sendToApp(type: WebViewEventType, message?: WebViewEventParams[typeof type]) {
@@ -7,6 +10,7 @@ export class AppBridge {
       window.ReactNativeWebView?.postMessage?.(JSON.stringify({ type, message } as WebViewEvent<WebViewEventType>));
     }
   }
+
   static onLoad() {
     this.sendToApp(WebViewEventType.OnLoad);
   }

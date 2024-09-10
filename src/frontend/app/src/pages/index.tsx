@@ -4,9 +4,7 @@ import { useEffect } from 'react';
 import { ActionType } from '@blankclub/common/src/app/app-to-web-event.constant';
 
 export default function Home() {
-
   const { addActionEventListener } = useInAppState();
-
 
   useEffect(
     () =>

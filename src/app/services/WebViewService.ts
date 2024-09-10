@@ -1,9 +1,7 @@
-
 import { RefObject } from 'react';
 import WebView from 'react-native-webview';
 import { Logger } from '@/utils/logger';
 import { InAppEventName, InAppEventParams, InAppEventType } from '@blankclub/common/app/app-to-web-event.constant';
-
 
 export const sendEventToWeb =
   (webViewRef: RefObject<WebView>) =>
