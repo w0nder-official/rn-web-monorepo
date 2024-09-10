@@ -21,7 +21,17 @@
 #### Install library
 
 ```shell
-make init
+make initialize
+```
+
+#### Cloudflared Tunnel
+
+```
+cloudflared tunnel login
+
+# 프로젝트 초기 설정시에만 실행
+cloudflared tunnel create blankclub-app
+cloudflared tunnel route dns blankclub-app tunnel-app.blankclub.site
 ```
 
 ### Run
@@ -44,4 +54,3 @@ yarn dev
 ```
 yarn lint
 ```
-

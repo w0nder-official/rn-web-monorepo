@@ -28,7 +28,8 @@
     "dev": "concurrently -c \"bgGreen.bold,bgMagenta.bold,bgYellow.bold,bgBlue.bold\" \"yarn:run-*\"",
     "run-traefik": "cd docs/infra/local/traefik && traefik --configFile=traefik.toml",
     "run-frontend-app": "yarn @blankclub/frontend-app dev",
-    "run-app": "yarn @blankclub/app start"
+    "run-app": "yarn @blankclub/app start",
+    "run-cloudflared-tunnel": "cloudflared tunnel --http-host-header app.blankclub.work --url https://app.blankclub.work run blankclub-app"
   },
   "lint-staged": {
     "src/frontend/app/**/*.{js,jsx,ts,tsx}": [

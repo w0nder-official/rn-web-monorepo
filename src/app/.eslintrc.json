@@ -1,6 +1,5 @@
 {
   "extends": [
-    "plugin:@next/next/recommended",
     "@fw/eslint-config",
     "@fw/eslint-config/react/typescript",
     "@fw/eslint-config/prettier"

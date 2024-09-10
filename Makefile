@@ -7,7 +7,7 @@ initialize: application certs
 	@sudo ./docs/infra/local/scripts/hosts.sh
 
 application:
-	@brew install mysql postgresql traefik node mkcert nss watchman || true
+	@brew install mysql postgresql traefik node mkcert nss watchman cloudflared || true
 	@npm install -g yarn corepack --force || true
 	@corepack enable
 	@yarn install

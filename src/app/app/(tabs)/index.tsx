@@ -1,5 +1,5 @@
 import { WebView, WebViewMessageEvent } from 'react-native-webview';
-import { sendEventToWeb } from '@/services/WebViewService';
+import { sendEventToWeb } from '@/services/SendEventToWebService';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { InAppEventType } from '@blankclub/common/app/app-to-web-event.constant';
 import { WebViewEvent, WebViewEventParams, WebViewEventType } from '@blankclub/common/app/web-to-app-event.constant';
@@ -31,8 +31,7 @@ export default function HomeScreen() {
         }
 
         case WebViewEventType.ShowToast: {
-          const payload = message as WebViewEventParams[typeof type];
-          Alert.alert('Alert]', payload?.text ?? '');
+          Alert.alert('Alert', message?.text ?? '');
           break;
         }
 
@@ -49,7 +48,7 @@ export default function HomeScreen() {
   return (
     <WebView
       ref={webViewRef}
-      source={{ uri: 'https://mean-taxes-decide.loca.lt/' }}
+      source={{ uri: 'https://tunnel-app.blankclub.work/' }}
       style={{ flex: 1 }}
       onMessage={handleOnMessage}
     />

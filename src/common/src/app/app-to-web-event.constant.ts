@@ -11,8 +11,6 @@ export enum InAppEventType {
 }
 
 export enum ActionType {
-  Save = 'Save',
-  Register = 'Register',
   Share = 'Share',
 }
 
@@ -20,3 +18,9 @@ export interface InAppEventParams {
   [InAppEventType.ChangePushOn]: { isPushOn: boolean };
   [InAppEventType.Action]: { type: ActionType };
 }
+
+
+export const getWindowDispatchScript = <E extends InAppEventType>(event: InAppEventType, data: InAppEventParams[E]) =>
+  `window.dispatchEvent(new CustomEvent("${InAppEventName}", ${JSON.stringify({
+    detail: { type: event, message: data },
+  })}));`;
