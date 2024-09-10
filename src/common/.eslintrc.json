@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "plugin:@next/next/recommended",
+    "@fw/eslint-config",
+    "@fw/eslint-config/react/typescript",
+    "@fw/eslint-config/prettier"
+  ],
+  "rules": {
+    // 한 컴포넌트내부의 스타일 로직이 있는 경우, 스타일 코드가 컴포넌트 밑에 정의되는것이 낫기 때문에 이룰 제거
+    "@typescript-eslint/no-use-before-define": "off",
+    "no-await-in-loop": "off"
+  },
+  "ignorePatterns": [
+    "webpack.config.js",
+    "node_modules",
+    "dist",
+    ".next",
+    "next.config.js",
+    "sentry.server.config.js",
+    "sentry.client.config.js",
+    "devServer.js",
+    "server.js",
+    "prisma",
+    "*.js"
+  ]
+}

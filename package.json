@@ -6,7 +6,9 @@
   "packageManager": "yarn@4.4.1",
   "workspaces": {
     "packages": [
-      "src/frontend/app"
+      "src/frontend/app",
+      "src/common",
+      "src/app"
     ]
   },
   "devDependencies": {

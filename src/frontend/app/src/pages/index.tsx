@@ -1,6 +1,28 @@
 import Image from 'next/image';
+import { useInAppState } from '@blankclub/frontend-app/context/InAppProvider';
+import { useEffect } from 'react';
+import { ActionType } from '@blankclub/common/src/app/app-to-web-event.constant';
 
 export default function Home() {
+
+  const { addActionEventListener } = useInAppState();
+
+
+  useEffect(
+    () =>
+      addActionEventListener(params => {
+        switch (params.type) {
+          case ActionType.Share: {
+            console.log('Share triggered');
+            break;
+          }
+          default:
+            break;
+        }
+      }),
+    [addActionEventListener],
+  );
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
