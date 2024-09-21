@@ -28,19 +28,18 @@ export const InAppProvider = ({ children }: { children: ReactNode }) => {
   const [actionListeners] = useState(new EventHandler<{ type: ActionType }>());
 
   const handleInAppEvent = useCallback(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    async (event: any) => {
-      const payload = event.detail as InAppEvent<InAppEventType>;
-
-      switch (payload.type) {
+    async (event: CustomEvent<InAppEvent<InAppEventType>>) => {
+      switch (event.detail.type) {
         case InAppEventType.ChangePushOn: {
-          const message = payload.message as InAppEventParams[typeof payload.type];
+          const message = event.detail.message as InAppEventParams[typeof event.detail.type];
+
           setIsPushOn(message.isPushOn);
           alert(`Push notification is ${message.isPushOn ? 'on' : 'off'}`);
           break;
         }
         case InAppEventType.Action: {
-          const message = payload.message as InAppEventParams[typeof payload.type];
+          const message = event.detail.message as InAppEventParams[typeof event.detail.type];
+
           actionListeners.emit({ type: message.type });
           break;
         }
